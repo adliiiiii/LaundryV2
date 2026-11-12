@@ -1,0 +1,5 @@
+<div class="mb-3"><label class="form-label">Nama kategori</label><input name="name" class="form-control" value="{{ old('name',$category->name) }}" required></div>
+<div class="mb-3"><label class="form-label">Tipe</label><select name="type" class="form-select" required><option value="satuan" @selected(old('type',$category->type)==='satuan')>Satuan</option><option value="kiloan" @selected(old('type',$category->type)==='kiloan')>Kiloan</option></select></div>
+<div class="mb-3"><label class="form-label">Estimasi pengerjaan (hari)</label><input name="estimasi_hari" type="number" min="1" max="365" class="form-control" value="{{ old('estimasi_hari',$category->estimasi_hari ?? 1) }}" required></div>
+<div class="form-check mb-3"><input type="checkbox" name="is_active" value="1" class="form-check-input" id="active" @checked(old('is_active',$category->exists ? $category->is_active : true))><label class="form-check-label" for="active">Aktif</label></div>
+<button class="btn btn-primary">Simpan</button> <a href="{{ route('categories.index') }}" class="btn btn-light">Batal</a>
